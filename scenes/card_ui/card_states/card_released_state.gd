@@ -1,11 +1,19 @@
 extends CardState
 
+var played: bool
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func enter() -> void:
+	card_ui.color.color = Color.DARK_VIOLET
+	card_ui.state.text = "RELEASED"
+	
+	played = false
+	
+	if not card_ui.targets.is_empty():
+		played = true
+		print("Play card for target(s): ", card_ui.targets)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func on_input(_event: InputEvent) -> void:
+	if played:
+		return
+	
+	transition_requested.emit(self, CardState.State.BASE)
