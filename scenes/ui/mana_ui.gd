@@ -5,7 +5,6 @@ extends Panel
 
 @onready var mana_label: Label = $ManaLabel
 
-
 func _set_char_stats(value: CharacterStats) -> void:
 	char_stats = value
 	
