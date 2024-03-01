@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnxcetmr0mf87"]
+[gd_scene load_steps=14 format=3 uid="uid://dnxcetmr0mf87"]
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_44336"]
 [ext_resource type="Script" path="res://scenes/ui/hand.gd" id="2_8if04"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://c3y1w8yv7k1uy" path="res://characters/warrior/cards/warrior_axe_attack.tres" id="5_hyne4"]
 [ext_resource type="Resource" uid="uid://dg0qyy4u7q2cm" path="res://characters/warrior/cards/warrior_block.tres" id="6_b2om3"]
 [ext_resource type="PackedScene" uid="uid://vfihi7y75wqw" path="res://scenes/ui/mana_ui.tscn" id="11_05usk"]
+[ext_resource type="PackedScene" uid="uid://b55128efo4j8q" path="res://scenes/ui/tooltip.tscn" id="12_1xhed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w514v"]
 size = Vector2(256, 100)
@@ -75,3 +76,7 @@ char_stats = ExtResource("4_q7bun")
 
 [node name="ManaUI" parent="BattleUI" instance=ExtResource("11_05usk")]
 char_stats = ExtResource("4_q7bun")
+
+[node name="Tooltip" parent="BattleUI" instance=ExtResource("12_1xhed")]
+offset_top = 7.0
+offset_bottom = 43.0
