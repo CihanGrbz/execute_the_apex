@@ -19,6 +19,7 @@ texture = ExtResource("1_76nm0")
 visible = false
 position = Vector2(16, 0)
 rotation = -1.5708
+scale = Vector2(0.54527, 1)
 texture = ExtResource("2_jujah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -27,3 +28,6 @@ shape = SubResource("RectangleShape2D_nkgvd")
 [node name="StatsUI" parent="." instance=ExtResource("3_i7esu")]
 offset_top = 5.0
 offset_bottom = 21.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
