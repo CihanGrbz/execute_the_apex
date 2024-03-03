@@ -2,6 +2,7 @@ extends CardState
 
 const MOUSE_Y_SNAPBACK_THRESHOLD := 138
 
+
 func enter() -> void:
 	card_ui.targets.clear()
 	
@@ -11,9 +12,11 @@ func enter() -> void:
 	card_ui.droppoint_detector.monitoring = false
 	Events.card_aim_started.emit(card_ui)
 
+
 func exit() -> void:
 	Events.card_aim_ended.emit(card_ui)
-	
+
+
 func on_input(event: InputEvent) -> void:
 	var mouse_motion := event is InputEventMouseMotion
 	var mouse_at_bottom := card_ui.get_global_mouse_position().y > MOUSE_Y_SNAPBACK_THRESHOLD

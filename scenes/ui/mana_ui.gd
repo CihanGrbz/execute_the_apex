@@ -5,6 +5,7 @@ extends Panel
 
 @onready var mana_label: Label = $ManaLabel
 
+
 func _set_char_stats(value: CharacterStats) -> void:
 	char_stats = value
 	
@@ -15,6 +16,7 @@ func _set_char_stats(value: CharacterStats) -> void:
 		await ready
 		
 	_on_stats_changed()
-	
+
+
 func _on_stats_changed() -> void:
 	mana_label.text = "%s/%s" % [char_stats.mana, char_stats.max_mana]
