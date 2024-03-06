@@ -30,33 +30,33 @@ func _ready() -> void:
 	Events.card_aim_ended.connect(_on_card_drag_or_aiming_ended)
 	Events.card_drag_ended.connect(_on_card_drag_or_aiming_ended)
 	card_state_machine.init(self)
-	
-	
+
+
 func _input(event: InputEvent) -> void:
 	card_state_machine.on_input(event)
-	
-	
+
+
 func animate_to_position(new_position: Vector2, duration: float) -> void:
 	tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "global_position", new_position, duration)
-	
-	
+
+
 func play() -> void:
 	if not card:
 		return
-	
+		
 	card.play(targets, char_stats)
 	queue_free()
-	
-	
+
+
 func _on_gui_input(event: InputEvent) -> void:
 	card_state_machine.on_gui_input(event)
-	
-	
+
+
 func _on_mouse_entered() -> void:
 	card_state_machine.on_mouse_entered()
-	
-	
+
+
 func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
 

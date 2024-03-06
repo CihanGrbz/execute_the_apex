@@ -14,8 +14,10 @@ enum Target {SELF, SINGLE_ENEMY, ALL_ENEMIES, EVERYONE}
 @export var icon: Texture
 @export_multiline var tooltip_text: String
 
+
 func is_single_targeted() -> bool:
 	return target == Target.SINGLE_ENEMY
+
 
 func _get_targets(targets: Array[Node]) -> Array[Node]:
 	# If there are no targets, return empty array
@@ -35,6 +37,7 @@ func _get_targets(targets: Array[Node]) -> Array[Node]:
 		_:
 			return[]
 
+
 func play(targets: Array[Node], char_stats: CharacterStats) -> void:
 	Events.card_played.emit(self)
 	char_stats.mana -= cost
@@ -43,6 +46,7 @@ func play(targets: Array[Node], char_stats: CharacterStats) -> void:
 		apply_effects(targets)
 	else:
 		apply_effects(_get_targets(targets))
-		
+
+
 func apply_effects(_targets: Array[Node]) -> void:
 	pass
