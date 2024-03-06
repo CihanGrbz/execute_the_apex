@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnxcetmr0mf87"]
+[gd_scene load_steps=15 format=3 uid="uid://dnxcetmr0mf87"]
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_44336"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_gln7b"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scenes/player/player_handler.gd" id="8_ebq1a"]
 [ext_resource type="PackedScene" uid="uid://vfihi7y75wqw" path="res://scenes/ui/mana_ui.tscn" id="11_05usk"]
 [ext_resource type="PackedScene" uid="uid://b55128efo4j8q" path="res://scenes/ui/tooltip.tscn" id="12_1xhed"]
+[ext_resource type="Theme" uid="uid://dgqcqnibgqgom" path="res://main_theme.tres" id="13_rceg3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w514v"]
 size = Vector2(256, 100)
@@ -72,3 +73,19 @@ char_stats = ExtResource("4_q7bun")
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("12_1xhed")]
 offset_top = 7.0
 offset_bottom = 43.0
+
+[node name="EndTurnButton" type="Button" parent="BattleUI"]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -20.0
+offset_right = -5.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("13_rceg3")
+text = "End Turn"
