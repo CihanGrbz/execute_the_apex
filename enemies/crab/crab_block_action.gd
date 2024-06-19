@@ -2,16 +2,24 @@ extends EnemyAction
 
 @export var block := 6
 
-# TODO self-challenge: add tweening to block (similar to crab_attack_action.gd)
+
 func perform_action() -> void:
 	if not enemy or not target:
 		return
 	
+	var tween := create_tween().set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN)
+	var start := enemy.global_position
+	var end := start + Vector2.UP * 10
+	var target_array: Array[Node] = [enemy]
 	var block_effect := BlockEffect.new()
 	block_effect.amount = block
-	block_effect.execute([enemy])
 	
-	get_tree().create_timer(0.6, false).timeout.connect(
+	tween.tween_property(enemy, "global_position", end, 0.17)
+	tween.tween_callback(block_effect.execute.bind(target_array))
+	tween.set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(enemy, "global_position", start, 0.17)
+	
+	tween.finished.connect(
 		func():
 			Events.enemy_action_completed.emit(enemy)
 	)

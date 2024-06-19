@@ -21,8 +21,8 @@ func reset_mana() -> void:
 	
 
 func take_damage(damage: int) -> void:
-	var initial_health = health
-	super(damage)
+	var initial_health := health
+	super.take_damage(damage)
 	if health < initial_health:
 		Events.player_hit.emit()
 	
