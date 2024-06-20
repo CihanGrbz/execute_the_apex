@@ -25,6 +25,7 @@ func perform_action() -> void:
 	var target_array: Array[Node] = [enemy]
 	var block_effect := BlockEffect.new()
 	block_effect.amount = block
+	block_effect.sound = sound
 	
 	var shake_duration = 0.3
 	Shaker.shake(enemy, 7, shake_duration)
