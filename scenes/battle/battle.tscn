@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnxcetmr0mf87"]
+[gd_scene load_steps=20 format=3 uid="uid://dnxcetmr0mf87"]
 
 [ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="1_44336"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_gln7b"]
@@ -11,11 +11,13 @@
 [ext_resource type="Resource" uid="uid://bsibnsrqm7jh2" path="res://characters/warrior/warrior.tres" id="4_q7bun"]
 [ext_resource type="Resource" uid="uid://dva6y0xwyqpwe" path="res://enemies/crab/crab_enemy.tres" id="5_6uchw"]
 [ext_resource type="Script" path="res://scenes/ui/battle_ui.gd" id="7_ouq01"]
+[ext_resource type="Resource" uid="uid://caomf3ajfxq8x" path="res://enemies/bat/bat_enemy.tres" id="8_88f48"]
 [ext_resource type="Script" path="res://scenes/player/player_handler.gd" id="8_ebq1a"]
 [ext_resource type="PackedScene" uid="uid://vfihi7y75wqw" path="res://scenes/ui/mana_ui.tscn" id="11_05usk"]
 [ext_resource type="PackedScene" uid="uid://b55128efo4j8q" path="res://scenes/ui/tooltip.tscn" id="12_1xhed"]
 [ext_resource type="Theme" uid="uid://dgqcqnibgqgom" path="res://main_theme.tres" id="13_rceg3"]
 [ext_resource type="Script" path="res://scenes/ui/red_flash.gd" id="15_748cc"]
+[ext_resource type="PackedScene" uid="uid://gnf2kjm05v67" path="res://scenes/ui/battle_over_panel.tscn" id="17_37ygh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w514v"]
 size = Vector2(256, 100)
@@ -43,9 +45,17 @@ debug_color = Color(0, 0.6, 0.701961, 0.160784)
 [node name="EnemyHandler" type="Node2D" parent="."]
 script = ExtResource("4_38s0n")
 
-[node name="Enemy" parent="EnemyHandler" instance=ExtResource("2_s00qk")]
+[node name="BatEnemy" parent="EnemyHandler" instance=ExtResource("2_s00qk")]
+position = Vector2(188, 58)
+stats = ExtResource("8_88f48")
+
+[node name="CrabEnemy" parent="EnemyHandler" instance=ExtResource("2_s00qk")]
 position = Vector2(210, 77)
 stats = ExtResource("5_6uchw")
+
+[node name="BatEnemy2" parent="EnemyHandler" instance=ExtResource("2_s00qk")]
+position = Vector2(234, 58)
+stats = ExtResource("8_88f48")
 
 [node name="Player" parent="." instance=ExtResource("3_uv4jn")]
 position = Vector2(43, 76)
@@ -113,3 +123,9 @@ color = Color(1, 0.196078, 0.27451, 0)
 [node name="Timer" type="Timer" parent="RedFlash"]
 wait_time = 0.1
 one_shot = true
+
+[node name="BattleOverLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="BattleOverPanel" parent="BattleOverLayer" instance=ExtResource("17_37ygh")]
+visible = false
