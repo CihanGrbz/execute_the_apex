@@ -6,6 +6,10 @@
 
 [resource]
 script = ExtResource("1_ysrj5")
+character_name = "Warrior"
+description = "Heavy armor, even heavier hits.
+Your typical warrior."
+portrait = ExtResource("1_axtfj")
 stating_deck = ExtResource("3_r7ruj")
 cards_per_turn = 4
 max_mana = 3
