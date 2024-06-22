@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://brd3tssb21yx3"]
+
+[ext_resource type="Script" path="res://scenes/ui/card_menu_ui.gd" id="1_ugm4d"]
+[ext_resource type="Resource" uid="uid://dqsd847blmhjl" path="res://characters/warrior/cards/warrior_slash.tres" id="2_heory"]
+[ext_resource type="Theme" uid="uid://dgqcqnibgqgom" path="res://main_theme.tres" id="3_82ijs"]
+[ext_resource type="StyleBox" uid="uid://b7hr7qei7ts41" path="res://scenes/card_ui/card_base_stylebox.tres" id="3_p586d"]
+[ext_resource type="Texture2D" uid="uid://c6rme2o6dyaoj" path="res://art/tile_0104.png" id="4_ryurn"]
+
+[node name="CardMenuUI" type="CenterContainer"]
+offset_right = 25.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+script = ExtResource("1_ugm4d")
+card = ExtResource("2_heory")
+
+[node name="Visuals" type="Control" parent="."]
+custom_minimum_size = Vector2(25, 30)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Visuals"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_p586d")
+
+[node name="Cost" type="Label" parent="Visuals"]
+layout_mode = 1
+offset_right = 10.0
+offset_bottom = 10.0
+theme = ExtResource("3_82ijs")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Visuals"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_ryurn")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="gui_input" from="Visuals" to="." method="_on_visuals_gui_input"]
+[connection signal="mouse_entered" from="Visuals" to="." method="_on_visuals_mouse_entered"]
+[connection signal="mouse_exited" from="Visuals" to="." method="_on_visuals_mouse_exited"]
