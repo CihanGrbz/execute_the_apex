@@ -8,6 +8,7 @@
 script = ExtResource("2_gifyj")
 id = "warrior_slash"
 type = 0
+rarity = 1
 target = 2
 cost = 2
 icon = ExtResource("1_2tbpj")
